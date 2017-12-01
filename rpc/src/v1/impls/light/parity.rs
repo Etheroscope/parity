@@ -103,6 +103,10 @@ impl ParityClient {
 impl Parity for ParityClient {
 	type Metadata = Metadata;
 
+	fn state_history(&self) -> Result<String> {
+		Err(errors::unimplemented(Some(String::from("State history not implemented for a light client"))))
+	}
+
 	fn accounts_info(&self, dapp: Trailing<DappId>) -> Result<BTreeMap<H160, AccountInfo>> {
 		let dapp = dapp.unwrap_or_default();
 

@@ -119,6 +119,10 @@ impl<C, M, U> Parity for ParityClient<C, M, U> where
 {
 	type Metadata = Metadata;
 
+	fn state_history(&self) -> Result<String> {
+		Err(errors::unimplemented(Some(String::from("Method not yet implemented"))))
+	}
+
 	fn accounts_info(&self, dapp: Trailing<DappId>) -> Result<BTreeMap<H160, AccountInfo>> {
 		let dapp = dapp.unwrap_or_default();
 

@@ -36,6 +36,10 @@ build_rpc_trait! {
 	pub trait Parity {
 		type Metadata;
 
+		/// Returns the history of all contracts
+		#[rpc(name = "parity_stateHistory")]
+		fn state_history(&self) -> Result<String>;
+
 		/// Returns accounts information.
 		#[rpc(name = "parity_accountsInfo")]
 		fn accounts_info(&self, Trailing<DappId>) -> Result<BTreeMap<H160, AccountInfo>>;
